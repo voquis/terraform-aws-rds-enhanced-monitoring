@@ -141,3 +141,8 @@ variable "vpc_security_group_ids" {
   default     = null
 }
 
+variable "role_name" {
+  type        = string
+  description = "Role name for enhanced monitoring"
+  default     = null
+}
