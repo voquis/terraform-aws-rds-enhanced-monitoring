@@ -39,6 +39,7 @@ resource "aws_db_instance" "this" {
   publicly_accessible                 = var.publicly_accessible
   username                            = var.username
   vpc_security_group_ids              = var.vpc_security_group_ids
+  db_name                             = var.db_name
 }
 
 # ---------------------------------------------------------------------------------------------------------------------

@@ -146,3 +146,9 @@ variable "role_name" {
   description = "Role name for enhanced monitoring"
   default     = null
 }
+
+variable "db_name" {
+  type        = string
+  description = "Initial database name"
+  default     = null
+}
