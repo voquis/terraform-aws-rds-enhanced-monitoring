@@ -40,6 +40,7 @@ resource "aws_db_instance" "this" {
   username                            = var.username
   vpc_security_group_ids              = var.vpc_security_group_ids
   db_name                             = var.db_name
+  availability_zone                   = var.availability_zone
 }
 
 # ---------------------------------------------------------------------------------------------------------------------

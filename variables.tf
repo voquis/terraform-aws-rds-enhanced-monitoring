@@ -152,3 +152,9 @@ variable "db_name" {
   description = "Initial database name"
   default     = null
 }
+
+variable "availability_zone" {
+  type        = string
+  description = "Preferred availability zone"
+  default     = null
+}
