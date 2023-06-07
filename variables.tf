@@ -54,7 +54,7 @@ variable "engine_version" {
 variable "iam_database_authentication_enabled" {
   description = "Whether to use IAM authentication"
   type        = bool
-  default     = true
+  default     = null
 }
 
 variable "identifier" {
@@ -72,7 +72,7 @@ variable "instance_class" {
 variable "max_allocated_storage" {
   description = "The maximum amount of storage to allow with storage autoscaling"
   type        = number
-  default     = 100
+  default     = null
 }
 
 variable "multi_az" {
@@ -120,7 +120,7 @@ variable "parameter_group_name" {
 variable "password" {
   description = "Master password"
   type        = string
-  default     = "changeme"
+  default     = null
 }
 
 variable "publicly_accessible" {
@@ -156,5 +156,11 @@ variable "db_name" {
 variable "availability_zone" {
   type        = string
   description = "Preferred availability zone"
+  default     = null
+}
+
+variable "manage_master_user_password" {
+  type        = string
+  description = "Whether secrets manager should be used to manage the master password"
   default     = null
 }

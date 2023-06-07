@@ -41,6 +41,7 @@ resource "aws_db_instance" "this" {
   vpc_security_group_ids              = var.vpc_security_group_ids
   db_name                             = var.db_name
   availability_zone                   = var.availability_zone
+  manage_master_user_password         = var.manage_master_user_password
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
