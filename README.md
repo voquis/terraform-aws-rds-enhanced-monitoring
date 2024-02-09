@@ -15,7 +15,7 @@ provider "aws" {
 
 module "database" {
   source     = "voquis/rds-enhanced-monitoring/aws"
-  version    = "0.0.2"
+  version    = "0.0.6"
   subnet_ids = ["my-subnet-id-1", "my-subnet-id-2", "my-subnet-id-3"]
 }
 ```

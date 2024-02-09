@@ -7,6 +7,7 @@ terraform {
 # Provider Docs: https://www.terraform.io/docs/providers/aws/r/db_subnet_group.html
 # ---------------------------------------------------------------------------------------------------------------------
 resource "aws_db_subnet_group" "this" {
+  name       = var.db_subnet_group_name
   subnet_ids = var.subnet_ids
 }
 
