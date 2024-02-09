@@ -9,6 +9,12 @@ variable "subnet_ids" {
 # ---------------------------------------------------------------------------------------------------------------------
 # Optional variables
 # ---------------------------------------------------------------------------------------------------------------------
+variable "db_subnet_group_name" {
+  description = "Optional name of DB Subnet group."
+  type        = string
+  default     = null
+}
+
 variable "allocated_storage" {
   description = "GB of storage to allocate to each RDS instance"
   type        = number
