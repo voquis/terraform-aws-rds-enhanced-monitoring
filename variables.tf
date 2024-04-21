@@ -45,6 +45,12 @@ variable "copy_tags_to_snapshot" {
   default     = true
 }
 
+variable "deletion_protection" {
+  description = "Whether or not to prevent deletion"
+  type        = bool
+  default     = false
+}
+
 variable "engine" {
   description = "Database engine"
   type        = string

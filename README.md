@@ -1,7 +1,7 @@
 RDS with Enhanced Monitoring
 ===
 
-Terraform 0.12 module to create an RDS instance with enhanced monitoring.
+Terraform 0.12+ module to create an RDS instance with enhanced monitoring.
 Requires subnets in which to create a DB subnet group.
 To customise DB engine, versions, etc. see defaults in variables.tf.
 
@@ -15,7 +15,7 @@ provider "aws" {
 
 module "database" {
   source     = "voquis/rds-enhanced-monitoring/aws"
-  version    = "0.0.6"
+  version    = "0.0.7"
   subnet_ids = ["my-subnet-id-1", "my-subnet-id-2", "my-subnet-id-3"]
 }
 ```
@@ -31,10 +31,10 @@ provider "aws" {
   version = "2.65.0"
 }
 
-# Create publicaly accessible RDS instance with defaults
+# Create publicly accessible RDS instance with defaults
 module "database" {
   source                 = "voquis/rds-enhanced-monitoring/aws"
-  version                = "0.0.2"
+  version                = "0.0.7"
   publicly_accessible    = true
   subnet_ids             = module.networking.subnets[*].id
   vpc_security_group_ids = [aws_security_group.db.id]
