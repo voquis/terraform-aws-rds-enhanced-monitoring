@@ -135,6 +135,24 @@ variable "password" {
   default     = null
 }
 
+variable "performance_insights_enabled" {
+  description = "Whether Performance Insights are enabled"
+  type        = bool
+  default     = false
+}
+
+variable "performance_insights_kms_key_id" {
+  description = "KMS key ARN to encrypt Performance Insights data"
+  type        = string
+  default     = null
+}
+
+variable "performance_insights_retention_period" {
+  description = "Number of days to retain performance insights"
+  type        = number
+  default     = null
+}
+
 variable "publicly_accessible" {
   description = "Whether instance is publically accessible"
   type        = bool

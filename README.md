@@ -4,6 +4,7 @@ RDS with Enhanced Monitoring
 Terraform 0.12+ module to create an RDS instance with enhanced monitoring.
 Requires subnets in which to create a DB subnet group.
 To customise DB engine, versions, etc. see defaults in variables.tf.
+Optionally allows enabling performance insights for [supported DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.Engines.html).
 
 # Examples
 ## Minimal example
@@ -15,7 +16,7 @@ provider "aws" {
 
 module "database" {
   source     = "voquis/rds-enhanced-monitoring/aws"
-  version    = "0.0.7"
+  version    = "0.0.8"
   subnet_ids = ["my-subnet-id-1", "my-subnet-id-2", "my-subnet-id-3"]
 }
 ```
@@ -34,7 +35,7 @@ provider "aws" {
 # Create publicly accessible RDS instance with defaults
 module "database" {
   source                 = "voquis/rds-enhanced-monitoring/aws"
-  version                = "0.0.7"
+  version                = "0.0.8"
   publicly_accessible    = true
   subnet_ids             = module.networking.subnets[*].id
   vpc_security_group_ids = [aws_security_group.db.id]
@@ -81,3 +82,28 @@ resource "aws_security_group" "db" {
   }
 }
 ```
+
+## Performance insights with default RDS KMS key
+Create a data lookup for the default RDS KMS key for the account
+```terraform
+data "aws_kms_alias" "aws_rds" {
+  name = "alias/aws/rds"
+}
+```
+
+Reference the KMS key id in the performance insights configuration:
+```terraform
+module "database" {
+  source     = "voquis/rds-enhanced-monitoring/aws"
+  version    = "0.0.8"
+
+  subnet_ids = [
+    "my-subnet-id-1",
+    "my-subnet-id-2",
+    "my-subnet-id-3"
+  ]
+
+  performance_insights_enabled          = true
+  performance_insights_retention_period = 7
+  performance_insights_kms_key_id       = data.aws_kms_alias.aws_rds.id
+}
