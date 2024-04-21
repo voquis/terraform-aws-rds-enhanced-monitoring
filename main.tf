@@ -22,6 +22,7 @@ resource "aws_db_instance" "this" {
   backup_window                       = var.backup_window
   copy_tags_to_snapshot               = var.copy_tags_to_snapshot
   db_subnet_group_name                = aws_db_subnet_group.this.id
+  deletion_protection                 = var.deletion_protection
   engine                              = var.engine
   engine_version                      = var.engine_version
   iam_database_authentication_enabled = var.iam_database_authentication_enabled
