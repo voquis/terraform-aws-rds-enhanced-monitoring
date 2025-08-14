@@ -111,6 +111,12 @@ variable "storage_type" {
   default     = "gp2"
 }
 
+variable "snapshot_identifier" {
+  description = "Snapshot identifier to launch this instance from"
+  type        = string
+  default     = null
+}
+
 variable "maintenance_window" {
   description = "Maintenance window for auto minor update and snapshots"
   type        = string

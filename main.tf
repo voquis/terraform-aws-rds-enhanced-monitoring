@@ -31,6 +31,7 @@ resource "aws_db_instance" "this" {
   max_allocated_storage                 = var.max_allocated_storage
   multi_az                              = var.multi_az
   skip_final_snapshot                   = var.skip_final_snapshot
+  snapshot_identifier                   = var.snapshot_identifier
   storage_type                          = var.storage_type
   storage_encrypted                     = var.storage_encrypted
   monitoring_interval                   = var.monitoring_interval
