@@ -51,6 +51,12 @@ variable "deletion_protection" {
   default     = false
 }
 
+variable "kms_key_id" {
+  description = "KMS Key ID used for encryption"
+  type        = string
+  default     = null
+}
+
 variable "engine" {
   description = "Database engine"
   type        = string

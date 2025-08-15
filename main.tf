@@ -28,6 +28,7 @@ resource "aws_db_instance" "this" {
   iam_database_authentication_enabled   = var.iam_database_authentication_enabled
   identifier                            = var.identifier
   instance_class                        = var.instance_class
+  kms_key_id                            = var.kms_key_id
   max_allocated_storage                 = var.max_allocated_storage
   multi_az                              = var.multi_az
   skip_final_snapshot                   = var.skip_final_snapshot

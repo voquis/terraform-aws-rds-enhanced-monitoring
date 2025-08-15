@@ -16,7 +16,7 @@ provider "aws" {
 
 module "database" {
   source     = "voquis/rds-enhanced-monitoring/aws"
-  version    = "0.0.8"
+  version    = "1.0.1"
   subnet_ids = ["my-subnet-id-1", "my-subnet-id-2", "my-subnet-id-3"]
 }
 ```
@@ -35,7 +35,7 @@ provider "aws" {
 # Create publicly accessible RDS instance with defaults
 module "database" {
   source                 = "voquis/rds-enhanced-monitoring/aws"
-  version                = "0.0.8"
+  version                = "1.0.1"
   publicly_accessible    = true
   subnet_ids             = module.networking.subnets[*].id
   vpc_security_group_ids = [aws_security_group.db.id]
@@ -95,7 +95,7 @@ Reference the KMS key id in the performance insights configuration:
 ```terraform
 module "database" {
   source     = "voquis/rds-enhanced-monitoring/aws"
-  version    = "0.0.8"
+  version    = "1.0.1"
 
   subnet_ids = [
     "my-subnet-id-1",
